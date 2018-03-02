@@ -3,11 +3,19 @@ janus:
   build: .
   # image: efacilitation/docker-janus-webrtc-gateway
   container_name: a-janus
-  volumes:
-    - "~/docker-nginx-https/config/nginx/certs:/opt/janus/certs"
+  # volumes: 
+  #   - "/home/ubuntu/docker-nginx-https/config/nginx/certs:/opt/janus/certs"
+  #   ln -s /home/ubuntu/docker-nginx-https/config/nginx/certs /home/ubuntu/docker-janus-webrtc-gateway/conf/certs 
   ports:
-    - "8081:8081"
-    - "8081:8081"
+    # admin 7088 7089 
+    # http 8088 8089 
+    # wss 8188 8189
+    - "7088:7088"
+    - "7089:7089"
+    - "8088:8088"
+    - "8089:8089"
+    - "8188:8188"
+    - "8189:8189"
   environment:
     - VIRTUAL_HOST=janus.yongbuzhixi.com
     - LETSENCRYPT_HOST=janus.yongbuzhixi.com
