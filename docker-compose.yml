@@ -1,0 +1,15 @@
+janus:
+  restart: always
+  build: .
+  # image: efacilitation/docker-janus-webrtc-gateway
+  container_name: a-janus
+  volumes:
+    # - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    - "~/docker-nginx-https/config/nginx/certs:/opt/janus/certs"
+  ports:
+  - "8088:8088"
+  - "8188:8188"
+  environment:
+    - VIRTUAL_HOST=janus.yongbuzhixi.com
+    - LETSENCRYPT_HOST=janus.yongbuzhixi.com
+    - LETSENCRYPT_EMAIL=dale@yongbuzhixi.com
