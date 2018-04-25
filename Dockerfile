@@ -26,10 +26,10 @@ RUN ./apache.sh
 RUN ./janus.sh
 # Put configs in place
 COPY conf/*.cfg /opt/janus/etc/janus/
-COPY conf/cert/* /opt/janus/cert/
+# COPY conf/certs/janus.yongbuzhixi.com/*.pem /opt/janus/certs/
 
 # Declare the ports we use
-EXPOSE 80 7088 7089 8088 8089 8188 8189
+EXPOSE 80 7088 8088 8188
 
 # Define the default start-up command
 CMD ./startup.sh
